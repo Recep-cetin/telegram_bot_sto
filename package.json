@@ -49,7 +49,7 @@
         "node-binance-api": "^0.13.1",
         "nodemailer": "^6.8.0",
         "socket.io-client": "^4.5.4",
-        "technicalindicators": "^3.0.0",
+        "technicalindicators": "3.0.0",
         "telegraf": "^4.11.2",
         "ws": "^8.12.0"
     },
