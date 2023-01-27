@@ -1,0 +1,42 @@
+Nodemailer, Node.js için popüler bir e-posta aracıdır ve kullanması oldukça kolaydır. Öncelikle, Nodemailer paketini projenize dahil etmeniz gerekir. Bu, npm komutu ile yapılabilir:
+
+Copy code
+npm install nodemailer
+Dahsonra, Nodemailer'ı kullanmaya başlamak için birkaç adım izlemelisiniz:
+
+Nodemailer'ı projenizde kullanmak için import edin:
+Copy code
+const nodemailer = require('nodemailer');
+E-posta sunucusu ayarlarını tanımlayın. Bu, SMTP sunucusu adresi, kullanıcı adı ve şifre gibi bilgileri içerebilir. Ayrıca, e-posta sağlayıcınıza bağlı olarak SSL/TLS gibi ek ayarlar da yapabilirsiniz.
+
+Bir e-posta göndermek için bir "transport" nesnesi oluşturun. Bu nesne, e-posta göndermek için kullanılacak e-posta sunucusu ayarlarını içerir:
+
+Copy code
+const transport = nodemailer.createTransport({
+  host: 'smtp.example.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'user@example.com',
+    pass: 'password'
+  }
+});
+E-posta göndermek için bir mesaj nesnesi oluşturun. Bu nesne, e-posta konusu, alıcılar, gövde ve ekler gibi bilgileri içerebilir:
+Copy code
+const message = {
+  from: 'sender@example.com',
+  to: 'receiver@example.com',
+  subject: 'Test Email',
+  text: 'This is a test email sent using Nodemailer'
+};
+E-postayı göndermek için "sendMail" metodunu kullanın. Bu metod, e-posta göndermek için kullanılacak transport ve mesaj nesnelerini alır:
+Copy code
+transport.sendMail(message, (error, info) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(`Email sent: ${info.response}`);
+  }
+});
+Bu 5 adımda yaptığınız işlemler ile bir e-posta gönderme işlemini yapmış olursunuz.
+Ek olarak, daha fazla özellik ve örnekler
