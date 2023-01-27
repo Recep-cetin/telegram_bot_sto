@@ -51,7 +51,14 @@ const stochasticrsi = async (
 
 let dizi = [];
 const StochRsi_Bot = async (symbol) => {
-    dizi = await stochasticrsi(3, 3, 14, 14, 'close', 'binance', symbol, '5m', false)
+    let dizi;
+    try {
+        dizi = await stochasticrsi(3, 3, 14, 14, 'close', 'binance', symbol, '5m', false);
+    } catch (err) {
+        console.log(err);
+        return;
+    }
+    if (!dizi) return;
     let k = dizi.map((data) => data.k);
     let d = dizi.map((data) => data.d);
 
