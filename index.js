@@ -21,7 +21,7 @@ setInterval(() => {
   StochRsi_Bot(sayac[index])
   /* StochRsi_Bot('BTCUSDT'); */
   index++;
-}, 6000);
+}, 15000);
 
 module.exports = {
   sayac,
