@@ -11,7 +11,7 @@ const data = async (ticker) => {
     let interval = '5m';
     let isFuture = true;
     try {
-        let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
+        let ohlcv = await getOHLCV( ticker, interval)
         let g = ohlcv[ohlcv.length - 1]; let sn = g[4]; console.log(ticker + " sn : " + sn);
         return sn
     } catch (err) {
