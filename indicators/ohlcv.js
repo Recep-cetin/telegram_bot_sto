@@ -1,26 +1,14 @@
-const ccxt = require('ccxt')
-const getOHLCV = async (ex, ticker, interval, isFuture = false) => {
-  if (!ccxt.exchanges.includes(ex)) {
-    throw 'Exchange is not supported'
-  }
-  try {
-    let exchangeId = ex,
-      exchangeClass = ccxt[exchangeId]
+ const axios = require('axios');
 
-    let exchange
-    if (isFuture) {
-      exchange = new exchangeClass({
-        options: {
-          defaultMarket: 'future',
-        },
-      })
-    } else {
-      exchange = new exchangeClass({})
-    }
-    return await exchange.fetchOHLCV(ticker, interval)
+const getOHLCV = async (ticker, interval) => {
+  try {
+    const response = await axios.get(`https://api.binance.com/api/v1/klines?interval=${interval}&symbol=${ticker}`);
+    
+    return response.data/* ,console.log(response.data) */;
   } catch (err) {
-    throw 'Ticker is not supported'
+    throw 'Error fetching OHLCV data';
   }
 }
+
 //console.log(getOHLCV("binance", "BTC/USDT", "15m", true))
 module.exports = getOHLCV
