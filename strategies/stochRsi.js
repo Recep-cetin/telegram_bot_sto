@@ -113,7 +113,7 @@ const serv = async (a, s) => {
         if (a === "buy") {
             const d = b + (b * 0.002); d_tf = d.toFixed(9);
             const c = b - (b * 0.007); c_tf = c.toFixed(9);
-            Send_Telegram(`<-----> 🟩BUY ${s} 🟩 <----->     
+            Send_Telegram(`<g----> 🟩BUY ${s} 🟩 <----->     
         \nTAKE PROFIT : ${d_tf} 
         \nSTOP LOSS   : ${c_tf}
         `)
@@ -123,7 +123,7 @@ const serv = async (a, s) => {
             const d = b - (b * 0.002); let d_tf = d.toFixed(9);
             const c = b + (b * 0.007); let c_tf = c.toFixed(9);
 
-            Send_Telegram(`<-----> 🟥SELL ${s} 🟥 <----->
+            Send_Telegram(`<g----> 🟥SELL ${s} 🟥 <----->
         \nTAKE PROFIT : ${d_tf} .
         \nSTOP LOSS   : ${c_tf}
         `)
