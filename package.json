@@ -3,6 +3,9 @@
     "version": "1.0.8",
     "description": "provide trading technical indicator values",
     "main": "index.js",
+    "engines": {
+        "node": "16.x"
+    },
     "scripts": {
         "start": "echo example to fetch data from binance && node index.js",
         "lint": "eslint ./ --ext .js",
